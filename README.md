@@ -3,9 +3,10 @@
 </p>
 
 
-# revealjs_presentation_template
+# asiwg_open_science_presentation
 
-revealjs_presentation_template contains templates for NSIDC Revealjs presentations.
+A Revealjs presentation on Open Science presented to the CliC Arctic Science Working Group at
+Arctic Science Summit Week, March 24 2025, Boulder, Colorado, USA.
 
 
 ## Level of Support
