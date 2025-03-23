@@ -1,29 +1,115 @@
 ---
-title: Main Title
+title: Cool Open Science
 author:
-  name: "Your Name"
+  name: "Andrew P. Barrett"
   affiliations:
-    name: "Affiliation"
-  orcid: "ORCID"
+    name: "National Snow and Ice Data Center"
+  orcid: "0000-0003-4394-5445"
 title-slide-attributes:
     data-background-image: images/sea-ice-background.jpeg  # Select background image
 format:
   revealjs:
     theme: nsidc_daac_theme.scss
     code-fold: true
-    fig-cap-location: top
+    fig-cap-location: bottom
     logo: images/nsidc_logo.png
-    footer: "Presentation Slide Template: Name of Meeting, date-of-meeting, location"
+    footer: "Open Science: ASIWG, March 24 2025, Boulder, CO"
     embed-resources: True
 ---
 
-## Title of Second Slide
+## One Definition of Open Science 
+
+> The principles of open science are to make publicly funded scientific research transparent, available, and reproducible. Advances in technology, including collaborative tools and cloud computing, help enable open science, but technology alone is insufficient. **Open science requires a shift to a more transparent and collaborative scientific process, which will increase the pace and quality of scientific progress.**
+
+[https://science.nasa.gov/open-science/](https://science.nasa.gov/open-science/) (accessed 2025-03-19)
+
+## Flavours of Open Science {visibility="hidden"}
+
+**Checklist Open Science:** what we do to satisfy requirements of funding agencies and publishers.  
+            - Put data and code in public repositories
+
+  
+  
+**A kinder Science:** transparancy and collaboration.  
+            - Collaborate through co-working sessions and hackathons  
+            - Actively share tips and tricks for working with data and code  
+            - Give back by participating in open source software development  
 
 
-## A Slide with an Image
+## Openscapes: a kinder science
+
+![Credit: Julie Lowndes and Alison Horst](images/horst_openscapes_champions.jpg){width=5%}
+
+Openscapes Champions: Empowering researchers by building collaborative teams.
 
 
-## A slide with two columns
+## The cloud enables open science
 
+:::: {.columns}
 
-## A slide with a html table
+::: {.column width=40%}
+
+- Common compute environments facilitate reproducibility
+- Streaming data accelerates workflows
+- Access to scalable computing
+- Real-time collaborative computing
+
+:::
+
+::: {.column width=60%}
+
+![Image by Alexis Hunzinger, DES DISC](https://nasa-openscapes.github.io/earthdata-cloud-cookbook/images/what-is-the-cloud-example-science.png){.absolute top=10 left=150 height=300}
+
+![](https://nasa-openscapes.github.io/earthdata-cloud-cookbook/images/nasa-openscapes.png){.absolute top=500 left=550 height=150}
+![](https://img1.wsimg.com/isteam/ip/c763ff7b-8175-4828-94ba-a610f6ca5b94/cryocloud.png){.absolute top=500 left=900 height=150}
+:::
+
+::::
+
+## Contributing to open source software
+
+![](https://user-images.githubusercontent.com/717735/205517116-7a5d0f41-7acc-441e-94ba-2e541bfb7fc8.png)
+
+```{.python}
+import earthaccess
+import xarray as xr
+
+earthaccess.login()
+
+results = earthaccess.search_data(
+    short_name='ATL06',  # ATLAS/ICESat-2 L3A Land Ice Height
+    bounding_box=(-10, 20, 10, 50),  # Only include files in area of interest...
+    temporal=("1999-02", "2019-03"),  # ...and time period of interest.
+    count=10)
+
+files = earthaccess.download(results, "/tmp/my-download-folder")
+
+# Or 
+files = earthaccess.open(results)
+ds = xr.open_mfdataset(files)
+```
+
+## Fast efficient data access
+
+To take full advantage of the cloud we need cloud optimized data
+
+![](https://github.com/cloudnativegeo/cloud-optimized-geospatial-formats-guide/blob/staging/images/cogeo-formats-table.png?raw=true)
+
+Image Credit: [https://guide.cloudnativegeo.org/](https://guide.cloudnativegeo.org/){.small}
+
+## Follow Best Data Practices
+
+Humans _analyze_ the data but machines have to _read_ the data.  And machines are dumb, so help them out.
+
+::: {.small}
+- Use standard file formats
+- Common filename structures
+- Follow conventions (Tidydata, CF)
+- Include essential metadata and attributes
+:::
+
+## Open Science is a Collaborative Exercise
+
+::: {.stretch .center}
+![The Openscapes Core Team, Lowndes & Robinson (2021). Openscapes Approach Guide (Version v0.0.1). https://openscapes.org/approach-guide.](https://openscapes.github.io/approach-guide/images/openscapes-flywheel-v2023.06.png)
+:::
